@@ -8,8 +8,8 @@ namespace DecoratorAssignment
 {
     public abstract class Beverage
     {
-        //Description can be retrieved by anyone, can only be set from whithin Beverage class
-        public string Description { get; protected set; } = " ";
+        //Description can be retrieved by anyone, can only be set from whithin Beverage class, can be overwritten by subclasses
+        public virtual string Description { get; protected set; } = " ";
 
         //cost variable to use in sublasses
         public abstract double Cost();

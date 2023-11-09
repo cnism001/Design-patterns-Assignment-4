@@ -33,6 +33,59 @@ namespace DecoratorAssignment
         }
     }
 
+    //Same idea as with SteamedMilk
+    public class Mocha : Condiment
+    {
+        private readonly Beverage _beverageComponent;
+
+        public Mocha(Beverage beverageComponent)
+        {
+            _beverageComponent = beverageComponent;
+        }
+
+        public override string Description => _beverageComponent.Description + ", with  Mocha";
+
+        public override double Cost()
+        {
+            return _beverageComponent.Cost() + 0.20;
+        }
+    }
+
+    //Same idea as with SteamedMilk
+    public class Soy : Condiment
+    {
+        private readonly Beverage _beverageComponent;
+
+        public Soy(Beverage beverageComponent)
+        {
+            _beverageComponent = beverageComponent;
+        }
+
+        public override string Description => _beverageComponent.Description + ", with Soy";
+
+        public override double Cost()
+        {
+            return _beverageComponent.Cost() + 0.15;
+        }
+    }
+
+    //Same idea as with SteamedMilk
+    public class WhippedCream : Condiment
+    {
+        private readonly Beverage _beverageComponent;
+
+        public WhippedCream(Beverage beverageComponent)
+        {
+            _beverageComponent = beverageComponent;
+        }
+
+        public override string Description => _beverageComponent.Description + ", with Whipped Cream";
+
+        public override double Cost()
+        {
+            return _beverageComponent.Cost() + 0.10;
+        }
+    }
 
 
 
