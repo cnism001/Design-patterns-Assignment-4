@@ -32,7 +32,27 @@ namespace DecoratorAssignment
 
                 //Object to hold value for chosen beverage
                 Beverage beverageChoice = null;
-                
+                //switch structure for main menu options, creates new objects of Beverage type and assigns them to beverageChoice
+                switch (userChoice)
+                {
+                    case "1":
+                        beverageChoice = new HouseBlend();
+                        break;
+                    case "2":
+                        beverageChoice = new DarkRoast();
+                        break;
+                    case "3":
+                        beverageChoice = new Decaf();
+                        break;
+                    case "4":
+                        beverageChoice = new Espresso();
+                        break;
+                    case "5":
+                        goto Checkout;
+                    default:
+                        Console.WriteLine("Please select a valid option from 1 to 5.");
+                        continue;
+                }
 
 
 
