@@ -104,21 +104,15 @@ namespace DecoratorAssignment
                     // Add the description and cost of the beverage with condiments to the order description
                     orderDescription.AppendLine(beverageChoice.Description + " - $" + beverageChoice.Cost().ToString("0.00"));
 
+                    // Ask if the user wants to order another coffee or proceed to checkout
+                    Console.WriteLine("Would you like to order another coffee? (yes/no)");
+                    string anotherCoffee = Console.ReadLine();
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                    //If the answer is not yes,proceed to checkout, if its yet then proceed to the beginning of the main loop
+                    if (anotherCoffee?.ToLower() != "yes")
+                    {
+                        goto Checkout;
+                    }
                 }
 
 
