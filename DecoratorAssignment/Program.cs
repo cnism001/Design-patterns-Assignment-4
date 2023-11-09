@@ -99,6 +99,10 @@ namespace DecoratorAssignment
                         Console.WriteLine("Please answer 'yes' or 'no'.");
                     }
 
+                    // Add the cost of the beverage with condiments to the total cost
+                    totalCost += beverageChoice.Cost();
+                    // Add the description and cost of the beverage with condiments to the order description
+                    orderDescription.AppendLine(beverageChoice.Description + " - $" + beverageChoice.Cost().ToString("0.00"));
 
 
 
