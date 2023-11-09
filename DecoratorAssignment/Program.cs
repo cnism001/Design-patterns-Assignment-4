@@ -75,16 +75,16 @@ namespace DecoratorAssignment
                         {
                             case "1":
                                 beverageChoice = new SteamedMilk(beverageChoice);
-                                break;
+                                continue;
                             case "2":
                                 beverageChoice = new Mocha(beverageChoice);
-                                break;
+                                continue;
                             case "3":
                                 beverageChoice = new Soy(beverageChoice);
-                                break;
+                                continue;
                             case "4":
                                 beverageChoice = new WhippedCream(beverageChoice);
-                                break;
+                                continue;
                             default:
                                 Console.WriteLine("Please select a valid option from 1 to 4.");
                                 continue;
@@ -98,78 +98,30 @@ namespace DecoratorAssignment
                     {
                         Console.WriteLine("Please answer 'yes' or 'no'.");
                     }
-
-                    // Add the cost of the beverage with condiments to the total cost
-                    totalCost += beverageChoice.Cost();
-                    // Add the description and cost of the beverage with condiments to the order description
-                    orderDescription.AppendLine(beverageChoice.Description + " - $" + beverageChoice.Cost().ToString("0.00"));
-
-                    // Ask if the user wants to order another coffee or proceed to checkout
-                    Console.WriteLine("Would you like to order another coffee? (yes/no)");
-                    string anotherCoffee = Console.ReadLine();
-
-                    //If the answer is not yes,proceed to checkout, if its yet then proceed to the beginning of the main loop
-                    if (anotherCoffee?.ToLower() != "yes")
-                    {
-                        goto Checkout;
-                    }
                 }
+                // Add the cost of the beverage with condiments to the total cost
+                totalCost += beverageChoice.Cost();
+                // Add the description and cost of the beverage with condiments to the order description
+                orderDescription.AppendLine(beverageChoice.Description + " - $" + beverageChoice.Cost().ToString("0.00"));
 
+                // Ask if the user wants to order another coffee or proceed to checkout
+                Console.WriteLine("Would you like to order another coffee? (yes/no)");
+                string anotherCoffee = Console.ReadLine();
 
-
-
-
-
-
-
-
+                //If the answer is not yes,proceed to checkout, if its yes then proceed to the beginning of the main loop
+                if (anotherCoffee?.ToLower() != "yes")
+                {
+                    break;
                 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                
+            }
+            Checkout:
+                // Display the total order desctiption and price
+                Console.WriteLine("Your order:");
+                Console.WriteLine(orderDescription.ToString());
+                Console.WriteLine("Total cost: $" + totalCost.ToString("0.00"));
+                Console.WriteLine("Thank you for your purchase!");
+            
         }
     }
 }
