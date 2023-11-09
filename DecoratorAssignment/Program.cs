@@ -31,7 +31,7 @@ namespace DecoratorAssignment
                 string userChoice = Console.ReadLine();
 
                 //Object to hold value for chosen beverage
-                Beverage beverageChoice = null;
+                Beverage? beverageChoice = null;
                 //switch structure for main menu options, creates new objects of Beverage type and assigns them to beverageChoice
                 switch (userChoice)
                 {
@@ -54,6 +54,50 @@ namespace DecoratorAssignment
                         continue;
                 }
 
+                //Loop for condiments
+                while (true)
+                {
+                    //yes proceeds to condiments selection menu, no interrupts a loop and goes to next step
+                    Console.WriteLine("Would you like to add a condiment? (yes/no)");
+                    string condimentChoice = Console.ReadLine();
+                    //can be hull, converted to lower case to require less precise input, loop continues untill a "no"
+                    if (condimentChoice?.ToLower() == "yes")
+                    {
+                        Console.WriteLine("Select a condiment to add to your coffee:");
+                        Console.WriteLine("1. Steamed Milk ($0.20)");
+                        Console.WriteLine("2. Mocha ($0.20)");
+                        Console.WriteLine("3. Soy ($0.15)");
+                        Console.WriteLine("4. Whipped Cream ($0.10)");
+                        string condimentType = Console.ReadLine();
+
+                        //replaces beverageChoice object by appending description and price of condiment
+                        switch (condimentType)
+                        {
+                            case "1":
+                                beverageChoice = new SteamedMilk(beverageChoice);
+                                break;
+                            case "2":
+                                beverageChoice = new Mocha(beverageChoice);
+                                break;
+                            case "3":
+                                beverageChoice = new Soy(beverageChoice);
+                                break;
+                            case "4":
+                                beverageChoice = new WhippedCream(beverageChoice);
+                                break;
+                            default:
+                                Console.WriteLine("Please select a valid option from 1 to 4.");
+                                continue;
+                        }
+                    }
+                    else if (condimentChoice?.ToLower() == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please answer 'yes' or 'no'.");
+                    }
 
 
 
@@ -64,7 +108,24 @@ namespace DecoratorAssignment
 
 
 
-            }
+
+
+
+
+
+
+
+                }
+
+
+
+
+
+
+
+
+
+                }
 
 
 
